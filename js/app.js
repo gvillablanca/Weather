@@ -58,6 +58,23 @@ function apiFunction(){
         document.getElementById('humedad').value =(humidityTday);              
         document.getElementById('info').value = (summaryTday);
 
+        clima.addEventListener('click', ()=>{
+          let week = [];
+           for (var i = 0; i < forecast.daily.data.length; i++) {
+              var date = new Date(forecast.daily.data[i].time * 1000),
+              day = days[date.getDay()],
+              skicons = forecast.daily.data[i].icon,
+              humidity = forecast.daily.data[i].humidity,
+              summary = forecast.daily.data[i].summary,
+              temp = Math.round(forecast.hourly.data[i].temperature),
+              tempMin = Math.round(forecast.daily.data[i].temperatureMin),
+              tempMax = Math.round(forecast.daily.data[i].temperatureMax);  
+              week.push('DIA: ' + day + ' ||   ' + 'HUMEDAD: '+ humidity+ ' ||   ' + 'SUMARIO: '+ summary+ ' ||   ' + 'TEMPERATURA: '+ temp+ ' ||   ' + 'MINIMA: '+  tempMin+ ' ||   ' + 'MAXIMA: ' + tempMax +  '\n');
+
+           }
+          document.getElementById('day1').value = (week + '\n');
+        });
+
  });
 }
 
@@ -80,69 +97,3 @@ list  = ["clear-day", "clear-night", "partly-cloudy-day", "partly-cloudy-night",
  icons.play();
 }
 
-
-        /*
-               const h1 = document.getElementById('ubicacion');
-              const icon = document.getElementById('icon');              
-
-              const fecha = document.getElementById('fecha');
-
-              const temperatura = document.getElementById('temperatura');
-              const minima = document.getElementById('min');
-              const maxima = document.getElementById('max');
-              const humedad = document.getElementById('humedad');              
-              const informacion = document.getElementById('info');
-              const actual = document.getElementById('actual');
-              const next1 = document.getElementById('next1');
-              const next2 = document.getElementById('next2');
-              const next3 = document.getElementById('next3');
-              const next4 = document.getElementById('next4');
-              const next5 = document.getElementById('next5');
-              const next6 = document.getElementById('next6');
-
-              first.appendChild(h1);
-              second.appendChild(icon);
-              third.appendChild(fecha);              
-              third.appendChild(temperatura);              
-              third.appendChild(minima);              
-              third.appendChild(maxima);              
-              third.appendChild(humedad);              
-              third.appendChild(informacion);              
-              third.appendChild(actual);              
-              third.appendChild(next1);              
-              third.appendChild(next2);              
-              third.appendChild(next3);              
-              third.appendChild(next4);              
-              third.appendChild(next5);              
-              third.appendChild(next6);
-
-             
-              const fechatext = document.createTextNode();
-              const temptext = document.createTextNode();
-              const mintext = document.createTextNode();
-              const maxtext = document.createTextNode();
-              const humtext = document.createTextNode();
-              const infotext = document.createTextNode();
-              const acttext = document.createTextNode();
-              const txt1 = document.createTextNode();
-              const txt2 = document.createTextNode();
-              const txt3 = document.createTextNode();
-              const txt4 = document.createTextNode();
-              const txt5 = document.createTextNode();
-              const txt6 = document.createTextNode();
-
-              fecha.appendChild(fechatext);
-              temperatura.appendChild(temptext);
-              minima.appendChild(mintext);
-              maxima.appendChild(maxtext);
-              humedad.appendChild(humtext);
-              informacion.appendChild(infotext);
-              actual.appendChild(acttext);
-              next1.appendChild(txt1);
-              next2.appendChild(txt2);
-              next3.appendChild(txt3);
-              next4.appendChild(txt4);
-              next5.appendChild(txt5);
-              next6.appendChild(txt6);
-                          
-        */
