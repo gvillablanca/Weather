@@ -4,21 +4,79 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Weather</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   
-  <div class="col s12 m4 l4">
-    <button id="btnLocation" class="waves-effect waves-light btn">Mi ubicación</button>
-    <button class="waves-effect waves-light btn">El Clima</button>
+  <div class="col-lg-12">
+    <button id="btnLocation" class="btn btn-default">Mi ubicación</button>
+    <button id="btnLocation" class="btn btn-default">7 dias</button>
   </div>
 
-  <form class="col s12 m4 l4">
-    
-  </form>
+  <section id="container-weather">
+    <!--contenedor de weather -->
+    <div class="container" id="container">
+      <div class="row " id="first">
+        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+              <h1 id="ubicacion"></h1>
+            </div> 
+          </div>
+          <div class="row " id="second">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 " >
+              <div id="icon" name="weatherType">
+               <!-- icon --> 
+              </div>              
+            </div> 
+          </div>
+        </div>
+      </div>
+      <div class="row " id="third">
+        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 ">
+          <ul>    
+            <li>
+              <h2>Hoy</h2>
+            </li>        
+            <li>
+              <label for="">Dia</label>
+              <input type="text" id="fecha" readonly class="form-control">
+            </li>
+            <li>
+              <label for="">temperatura</label>
+              <input type="text" id="temperatura" readonly class="form-control">
+            </li>
+            <li>
+              <label for="">minima</label>
+              <input type="text" id="min" readonly class="form-control">
+            </li>
+            <li>
+              <label for="">maxima</label>
+              <input type="text" id="max" readonly class="form-control">
+            </li>
+            <li>
+              <label for="">humedad</label>
+              <input type="text" id="humedad" readonly class="form-control">
+            </li>
+            <li>
+              <label for="">sumario</label>
+              <input type="text" id="info" readonly class="form-control">
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+          <h2>Proximos Dias</h2>
+          <table>
+            
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- AIzaSyDcO88A-VZWT28ICp5suDi6eKFUVN_8CrQ -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
   <script type="text/javascript" src="js/app.js" ></script>
 </body>
