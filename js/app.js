@@ -58,6 +58,8 @@ function apiFunction(){
         document.getElementById('humedad').value =(humidityTday);              
         document.getElementById('info').value = (summaryTday);
 
+        skycons();
+
         clima.addEventListener('click', ()=>{
           let week = [];
            for (var i = 0; i < forecast.daily.data.length; i++) {
@@ -69,7 +71,7 @@ function apiFunction(){
               temp = Math.round(forecast.hourly.data[i].temperature),
               tempMin = Math.round(forecast.daily.data[i].temperatureMin),
               tempMax = Math.round(forecast.daily.data[i].temperatureMax);  
-              week.push('DIA: ' + day + ' ||   ' + 'HUMEDAD: '+ humidity+ ' ||   ' + 'SUMARIO: '+ summary+ ' ||   ' + 'TEMPERATURA: '+ temp+ ' ||   ' + 'MINIMA: '+  tempMin+ ' ||   ' + 'MAXIMA: ' + tempMax +  '\n');
+              week.push('DIA: ' + day + ' ||   ' + 'HUMEDAD: '+ humidity+ ' ||   ' + 'SUMARIO: '+ summary+ ' ||   ' + 'TEMPERATURA: '+ temp+ ' ||   ' + 'MINIMA: '+  tempMin+ ' ||   ' + '<MAXIMA></MAXIMA>: ' + tempMax +  '\n');
 
            }
           document.getElementById('day1').value = (week + '\n');
@@ -82,18 +84,30 @@ function apiFunction(){
 function skycons() {
   var i,
     icons = new Skycons({
-                "color" : "#FE2E9A",
-                "resizeClear": true
-}),
-list  = ["clear-day", "clear-night", "partly-cloudy-day", "partly-cloudy-night", "cloudy","rain","sleet","snow","wind","fog"];
-    for(i = list.length; i--;) {
-        var weatherType = list[i], 
-            elements = document.getElementById( 'weatherType' );
-        for (e = elements.length; e--;) {
-            icons.set(elements[e], weatherType);
-        }
-    }
+      "color": "#FE2E9A",
+      "resizeClear": true
+    }),
+    list = [
+      "clear-day",
+      "clear-night",
+      "partly-cloudy-day",
+      "partly-cloudy-night",
+      "cloudy",
+      "rain",
+      "sleet",
+      "snow",
+      "wind",
+      "fog"
+    ];
 
- icons.play();
+  for (var i = list.length; i--;) {
+    var weatherType = list[i],
+      elements = document.getElementsByClassName(weatherType);
+    for (e = elements.length; e--;) {
+      icons.set(elements[e], weatherType);
+    }
+  }
+  // animación de iconos
+  icons.play();
 }
 
